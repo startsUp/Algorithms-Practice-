@@ -1,11 +1,11 @@
 https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.
 
 
-Find recursive relation
-Recursive (top-down)
-Recursive + memo (top-down)
-Iterative + memo (bottom-up)
-Iterative + N variables (bottom-up)
+- Find recursive relation
+- Recursive (top-down)
+- Recursive + memo (top-down)
+- Iterative + memo (bottom-up)
+- Iterative + N variables (bottom-up)
 
 ## Step 1. Figure out recursive relation.
 A robber has 2 options: a) rob current house i; b) don't rob current house.
@@ -15,11 +15,12 @@ So it boils down to calculating what is more profitable:
 
 robbery of current house + loot from houses before the previous
 loot from the previous house robbery and any loot captured before that
-rob(i) = Math.max( rob(i - 2) + currentHouseValue, rob(i - 1) )
+```rob(i) = Math.max( rob(i - 2) + currentHouseValue, rob(i - 1) )```
 
 ## Step 2. Recursive (top-down)
 Converting the recurrent relation from Step 1 shound't be very hard.
 
+```
 public int rob(int[] nums) {
     return rob(nums, nums.length - 1);
 }
@@ -29,10 +30,11 @@ private int rob(int[] nums, int i) {
     }
     return Math.max(rob(nums, i - 2) + nums[i], rob(nums, i - 1));
 }
+```
 This algorithm will process the same i multiple times and it needs improvement. Time complexity: [to fill]
 
 ## Step 3. Recursive + memo (top-down).
-
+```
 int[] memo;
 public int rob(int[] nums) {
     memo = new int[nums.length + 1];
@@ -51,10 +53,11 @@ private int rob(int[] nums, int i) {
     memo[i] = result;
     return result;
 }
+```
 Much better, this should run in O(n) time. Space complexity is O(n) as well, because of the recursion stack, let's try to get rid of it.
 
 ## Step 4. Iterative + memo (bottom-up)
-
+```
 public int rob(int[] nums) {
     if (nums.length == 0) return 0;
     int[] memo = new int[nums.length + 1];
@@ -66,10 +69,11 @@ public int rob(int[] nums) {
     }
     return memo[nums.length];
 }
+```
 
 ## Step 5. Iterative + 2 variables (bottom-up)
 We can notice that in the previous step we use only memo[i] and memo[i-1], so going just 2 steps back. We can hold them in 2 variables instead. This optimization is met in Fibonacci sequence creation and some other problems [to paste links].
-
+```
 /* the order is: prev2, prev1, num  */
 public int rob(int[] nums) {
     if (nums.length == 0) return 0;
@@ -82,3 +86,4 @@ public int rob(int[] nums) {
     }
     return prev1;
 }
+```
