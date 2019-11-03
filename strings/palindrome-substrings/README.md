@@ -1,4 +1,4 @@
-## Question 
+## Question [Medium]
 Given a string, your task is to count how many palindromic substrings in this string.
 
 The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.
@@ -20,7 +20,9 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
 ## Solution
 
-Expand around center for each character. There will be two centers for each character. 
+Let N be the length of the string. The middle of the palindrome could be in one of 2N - 1 positions: either at letter or between two letters.
+
+For each center, let's count all the palindromes that have this center. Notice that if [a, b] is a palindromic interval (meaning S[a], S[a+1], ..., S[b] is a palindrome), then [a+1, b-1] is one too. 
 
 
 ```
