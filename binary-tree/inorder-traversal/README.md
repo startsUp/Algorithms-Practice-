@@ -1,5 +1,4 @@
-> [MEDIUM] 
-# In order traversal 
+# In order traversal [MEDIUM] 
 Return array of in order traversal nodes. Recursive and iterative.
 
 ## Solution
