@@ -17,7 +17,7 @@ class Solution:
             i+=1
         dp[index] = 0
         return False
-    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    def wordBreak(self, s: str, wordDict) -> bool:
         # could make word dict
         dp = [-1 for i in s]
         return self.isSegmentable(s, 0, wordDict, dp)
