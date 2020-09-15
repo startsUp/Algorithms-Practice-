@@ -21,7 +21,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the sec
 
 ## Solution
  - Use fast and slow pointer to detect if there is a cycle
- - After cycle has been detected the distance `head - start` will be equal to `start - fast` so we just move slow to head and increment both pointers by 1 until they are equal. This will give us the start of the cycle.  
+ - After cycle has been detected the distance `head - start` will be equal to `start - fast` so we just move slow to head and increment both pointers by 1 until they are equal. This will give us the start of the cycle. Proof [here](https://math.stackexchange.com/questions/913499/proof-of-floyd-cycle-chasing-tortoise-and-hare)
 
 ```python
 def detectCycle(self, head):
