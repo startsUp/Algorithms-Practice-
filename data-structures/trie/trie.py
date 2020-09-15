@@ -4,7 +4,7 @@ class TrieNode:
         self.next = [None for i in range(26)]
         self.isEnd = isEnd
     def getNext(self, c):
-        k = ord(c) - 97 # bit index
+        k = ord(c) - 97 # index
         return self.next[k]
     def setNext(self, c, node):
         k = ord(c) - 97
