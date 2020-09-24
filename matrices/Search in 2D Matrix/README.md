@@ -19,6 +19,7 @@ Consider the following matrix:
 ## Solution
 Intuition: We know right and bottom are higher numbers, so if we DFS in either direction and backtrack if we encounter a element less than the target, we will eventually find the element or not.
 
+### My solution
 ```python
 def searchMatrix(self, matrix, target):
         """
@@ -42,3 +43,6 @@ def searchMatrix(self, matrix, target):
             
         return False
 ```
+
+
+### Alternate Solution `O(m+n)`
