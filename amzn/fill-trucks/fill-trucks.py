@@ -53,7 +53,7 @@ def fill_truck(boxes, units, truckSize):
     # [5, 3 ,2]
     # truck size = 4 boxes
 
-    products = [(boxes[i], units[i]) for i in range(len(boxes))]
+    products = [(units[i], boxes[i]) for i in range(len(boxes))]
     products.sort(reverse=True)
     print(products)
     units_loaded = 0
@@ -61,7 +61,7 @@ def fill_truck(boxes, units, truckSize):
     i=0
     while (boxes_loaded < truckSize and i < len(boxes)):
         p_units, p_boxes = products[i]
-        boxes_to_load = min(p_boxes, truck_size - boxes_loaded) 
+        boxes_to_load = min(p_boxes, truckSize - boxes_loaded) 
         boxes_loaded += boxes_to_load
         units_loaded += boxes_to_load * p_units
         i+=1 
