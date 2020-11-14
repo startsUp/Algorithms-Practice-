@@ -26,3 +26,35 @@ Product	Outside Products	Which Products Are Outside
 5	2	3, 6
 In the diagram above, the total product score is 1 + 0 + 2 = 3 for the trio (2, 4, 5).
 """
+
+# we can find trios by going through the adjacency list and selecting pairs of two number that 
+
+def getTrios(products_from, products_to):
+    adj = [[] for _ in range(len(products_from) + 1)]
+    print(adj)
+    for p in range(len(products_from)):
+        adj[products_from[p]].append(products_to[p])
+        adj[products_to[p]].append(products_from[p])
+    
+    trios = {}
+    for k in range(1, len(adj)): # brute force find trios
+        l = adj[k]
+        for i in range(0, len(l)-1):
+            for j in range(i+1, len(l)):
+                p1, p2 = l[i], l[j] 
+                triplet = tuple(sorted([k, p1, p2]))
+                if triplet in trios:
+                    continue
+                else:
+                    if (p1 in adj[p2]):
+                        trios[triplet] = True
+    print(trios)
+
+    
+    for trio in trios:
+        for 
+    print(adj)
+
+products_from = [1,2,2,3,4,5]
+products_to = [2,4,5,5,5,6]
+print(getTrios(products_from, products_to))

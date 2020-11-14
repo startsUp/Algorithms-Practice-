@@ -55,3 +55,28 @@ s = Solution()
 printX(s.numIslands(x))
 
 
+# class Solution:
+def UnionFind(self, grid):
+    m = len(grid)
+    n = len(grid[0])
+    self.parent = [0 for i in range(m*n)]
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            self.parent[i*n + j] = i*n + j
+
+def find(self, i):
+    # return parent
+    while self.parent[i] != i:
+        i = self.parent[self.parent[i]]
+    return i
+
+
+def union(self, i, j):
+    n1 = self.find(i)
+    n2 = self.find(j)
+    self.parent[n1] = n2
+def connected_components():
+    return max(self.parent+1)
+    
+def numIslands(self, grid: List[List[str]]) -> int:
+    self.UnionFind(grid)
