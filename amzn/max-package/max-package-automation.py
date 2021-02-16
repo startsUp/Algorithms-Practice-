@@ -1,7 +1,7 @@
 def maxPackage(items):
     # first item should be 1
     # adjacent items cannot have difference of more than 1
-
+    
     n = len(items)
     count = [0 for i in range(len(items)+1)]
     for i in items:
